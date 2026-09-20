@@ -1,12 +1,317 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>FitnessVision</title>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
-    <h1>FitnessVision</h1>
-    <p>AI-powered exercise posture analysis</p>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+
+        <div class="logo">
+            Fitness<span>Vision</span>
+        </div>
+
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+        </nav>
+
+        <a href="/exercises/" class="nav-button">
+            Start Workout
+        </a>
+
+    </header>
+
+
+    <!-- Hero Section -->
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="hero-label">
+                    AI-POWERED FITNESS ANALYSIS
+                </p>
+
+                <h1>
+                    Train Smarter.<br>
+                    <span>Move Better.</span>
+                </h1>
+
+                <p class="hero-description">
+                    FitnessVision uses your camera and AI-based pose estimation
+                    to analyze your exercise movements, detect posture errors,
+                    count repetitions, and provide corrective feedback.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="" class="primary-button">
+                        Start Workout
+                    </a>
+
+                    <a href="#how-it-works" class="secondary-button">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hero Visual -->
+            <div class="hero-visual">
+
+                <div class="pose-card">
+
+                    <div class="camera-placeholder">
+
+                        <div class="pose-circle"></div>
+
+                        <div class="pose-person">
+                            🧍
+                        </div>
+
+                        <div class="tracking-line line-1"></div>
+                        <div class="tracking-line line-2"></div>
+                        <div class="tracking-line line-3"></div>
+
+                    </div>
+
+                    <div class="analysis-status">
+
+                        <div>
+                            <span class="status-dot"></span>
+                            Pose Detection Active
+                        </div>
+
+                        <span>33 Keypoints</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Features -->
+        <section id="features" class="features-section">
+
+            <div class="section-heading">
+
+                <p class="hero-label">WHAT FITNESSVISION DOES</p>
+
+                <h2>
+                    Your personal AI fitness assistant
+                </h2>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">◉</div>
+
+                    <h3>Pose Detection</h3>
+
+                    <p>
+                        Detect body keypoints from your camera using
+                        real-time pose estimation.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">⌁</div>
+
+                    <h3>Posture Analysis</h3>
+
+                    <p>
+                        Analyze joint angles, alignment, and movement
+                        patterns during exercises.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">↻</div>
+
+                    <h3>Rep Counting</h3>
+
+                    <p>
+                        Track your exercise movement and automatically
+                        count valid repetitions.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">✓</div>
+
+                    <h3>Corrective Feedback</h3>
+
+                    <p>
+                        Identify specific posture errors and provide
+                        useful feedback to improve your form.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="how-section">
+
+            <div class="section-heading">
+
+                <p class="hero-label">HOW IT WORKS</p>
+
+                <h2>
+                    From camera to feedback
+                </h2>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+                    <span>01</span>
+                    <h3>Camera</h3>
+                    <p>
+                        Your webcam captures your exercise movement.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <span>02</span>
+                    <h3>Pose Detection</h3>
+                    <p>
+                        Pose Landmarker detects your body's keypoints.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <span>03</span>
+                    <h3>Analysis</h3>
+                    <p>
+                        FitnessVision analyzes angles and movement.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <span>04</span>
+                    <h3>Feedback</h3>
+                    <p>
+                        Receive posture feedback and repetition results.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Call To Action -->
+        <section class="cta">
+
+            <h2>
+                Ready to improve your form?
+            </h2>
+
+            <p>
+                Start a workout and let FitnessVision analyze your movement.
+            </p>
+
+            <a href="" class="primary-button">
+                Start Workout
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="logo">
+            Fitness<span>Vision</span>
+        </div>
+
+        <p>
+            AI-powered exercise analysis
+        </p>
+
+    </footer>
+<!-- Exercise Selection Modal -->
+<div class="modal-overlay" id="exerciseModal">
+
+    <div class="exercise-modal">
+
+        <button class="modal-close" id="closeModal">&times;</button>
+
+        <div class="modal-header">
+            <span class="modal-label">WORKOUT</span>
+            <h2>Select Exercise</h2>
+            <p>Choose an exercise to start your AI-powered workout analysis.</p>
+        </div>
+
+        <div class="exercise-grid">
+
+            <a href="" class="exercise-card">
+                <div class="exercise-icon">🏋️</div>
+                <h3>Squat</h3>
+                <p>Analyze squat form and repetitions.</p>
+            </a>
+
+            <a href="" class="exercise-card">
+                <div class="exercise-icon">💪</div>
+                <h3>Push-Up</h3>
+                <p>Analyze upper-body movement and form.</p>
+            </a>
+
+            <a href="" class="exercise-card">
+                <div class="exercise-icon">🏋️</div>
+                <h3>Bicep Curl</h3>
+                <p>Analyze arm movement and repetitions.</p>
+            </a>
+
+            <a href="" class="exercise-card">
+                <div class="exercise-icon">🏋️</div>
+                <h3>Deadlift</h3>
+                <p>Analyze lifting posture and technique.</p>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="{% static 'js/home.js' %}"></script>
 </body>
 </html>

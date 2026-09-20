@@ -1,0 +1,3 @@
+SQUAT,
+Pushup,
+Bicep curl,
