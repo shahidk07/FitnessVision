@@ -1,0 +1,108 @@
+```html
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exercises | FitnessVision</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            FitnessVision
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="{% url 'exercises' %}" class="active">Exercises</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Exercises</h1>
+        <p>
+            Choose an exercise and let FitnessVision analyze your posture
+            and track your repetitions.
+        </p>
+    </header>
+
+    <!-- Exercises -->
+    <main class="exercise-container">
+
+        <!-- Squat -->
+        <div class="exercise-card">
+            <div class="exercise-image">
+                <img src="{% static 'images/exercises/squat.jpg' %}"
+                     alt="Squat exercise">
+            </div>
+
+            <div class="exercise-content">
+                <h2>Squat</h2>
+
+                <p>
+                    Improve your lower-body strength while maintaining
+                    proper posture and knee alignment.
+                </p>
+
+                <a href="#" class="start-btn">
+                    Start Exercise
+                </a>
+            </div>
+        </div>
+
+        <!-- Push Up -->
+        <div class="exercise-card">
+            <div class="exercise-image">
+                <img src="{% static 'images/exercises/pushup.jpg' %}"
+                     alt="Push-up exercise">
+            </div>
+
+            <div class="exercise-content">
+                <h2>Push-Up</h2>
+
+                <p>
+                    Build upper-body strength while FitnessVision checks
+                    your body alignment and movement.
+                </p>
+
+                <a href="#" class="start-btn">
+                    Start Exercise
+                </a>
+            </div>
+        </div>
+
+        <!-- Bicep Curl -->
+        <div class="exercise-card">
+            <div class="exercise-image">
+                <img src="{% static 'images/exercises/bicep-curl.jpg' %}"
+                     alt="Bicep curl exercise">
+            </div>
+
+            <div class="exercise-content">
+                <h2>Bicep Curl</h2>
+
+                <p>
+                    Track your arm movement and repetitions while maintaining
+                    correct elbow and shoulder positioning.
+                </p>
+
+                <a href="#" class="start-btn">
+                    Start Exercise
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
+```
