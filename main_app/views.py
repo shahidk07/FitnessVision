@@ -8,3 +8,9 @@ def home(request):
 
 def exercises(request):
     return render(request, "exercises.html")
+
+def workout(request,exercise_name):
+    return render(request,"workout.html",
+                  {
+                      "exercise":exercise_name
+                  })

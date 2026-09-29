@@ -1,0 +1,494 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0f14;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.workout-page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.workout-header {
+    height: 80px;
+    padding: 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #252b33;
+    background: #10151c;
+}
+
+
+.back-button {
+    color: #b7bec8;
+    text-decoration: none;
+    font-size: 15px;
+
+    padding: 10px 16px;
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+.back-button:hover {
+    background: #1b222c;
+    color: white;
+}
+
+
+.exercise-title {
+    text-align: center;
+}
+
+
+.small-title {
+    display: block;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    color: #7e8793;
+
+    margin-bottom: 5px;
+}
+
+
+.exercise-title h1 {
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #8e98a5;
+    font-size: 14px;
+}
+
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    background: #777;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.workout-container {
+
+    width: min(1400px, 94%);
+
+    margin: 35px auto;
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 330px;
+
+    gap: 30px;
+}
+
+
+/* =========================
+   CAMERA
+========================= */
+
+.camera-section {
+    min-width: 0;
+}
+
+
+.camera-container {
+
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    background: #050709;
+
+    border: 1px solid #272e38;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+
+#camera {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+
+
+/*
+    Canvas will eventually be used
+    to draw pose landmarks.
+*/
+
+#poseCanvas {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CAMERA PLACEHOLDER
+========================= */
+
+.camera-placeholder {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.camera-icon {
+
+    font-size: 48px;
+
+    margin-bottom: 20px;
+}
+
+
+.camera-placeholder h2 {
+
+    font-size: 20px;
+
+    margin-bottom: 8px;
+}
+
+
+.camera-placeholder p {
+
+    color: #7f8995;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   CAMERA BUTTONS
+========================= */
+
+.camera-controls {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+.camera-controls button {
+
+    border: none;
+
+    padding: 13px 24px;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.start-button {
+
+    background: #ffffff;
+
+    color: #0b0f14;
+}
+
+
+.start-button:hover {
+
+    background: #dfe4e9;
+}
+
+
+.stop-button {
+
+    background: #242b34;
+
+    color: #ffffff;
+}
+
+
+.stop-button:hover:not(:disabled) {
+
+    background: #323b47;
+}
+
+
+.camera-controls button:disabled {
+
+    opacity: 0.4;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   STATISTICS
+========================= */
+
+.stats-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+.stat-card,
+.feedback-card,
+.instructions-card {
+
+    background: #11171e;
+
+    border: 1px solid #252d37;
+
+    border-radius: 14px;
+
+    padding: 22px;
+}
+
+
+.stat-label {
+
+    display: block;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    color: #7d8793;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   REPS
+========================= */
+
+.rep-count {
+
+    display: block;
+
+    font-size: 52px;
+
+    font-weight: 700;
+
+    line-height: 1;
+}
+
+
+.stat-value {
+
+    display: block;
+
+    font-size: 34px;
+
+    font-weight: 600;
+}
+
+
+.stat-description {
+
+    display: block;
+
+    color: #707b88;
+
+    font-size: 13px;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   FORM STATUS
+========================= */
+
+.form-status {
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    margin-bottom: 10px;
+}
+
+
+.feedback-message {
+
+    color: #9ba5b1;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   INSTRUCTIONS
+========================= */
+
+.instructions-card h3 {
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+}
+
+
+.instructions-card ol {
+
+    padding-left: 20px;
+
+    color: #9ba5b1;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .workout-container {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .stats-section {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .feedback-card,
+    .instructions-card {
+
+        grid-column: span 2;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .workout-header {
+
+        padding: 0 15px;
+
+    }
+
+    .exercise-title h1 {
+
+        font-size: 18px;
+
+    }
+
+    .small-title {
+
+        display: none;
+
+    }
+
+    .workout-container {
+
+        width: 94%;
+
+        margin: 20px auto;
+
+    }
+
+    .stats-section {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .feedback-card,
+    .instructions-card {
+
+        grid-column: span 1;
+
+    }
+
+    .camera-controls {
+
+        flex-direction: column;
+
+    }
+
+}
