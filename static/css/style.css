@@ -602,3 +602,18 @@ footer {
         font-size: 26px;
     }
 }
+
+/* Exercise Images */
+.exercise-image {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.exercise-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
