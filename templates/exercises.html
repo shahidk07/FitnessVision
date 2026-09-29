@@ -1,6 +1,4 @@
-```html
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,27 +80,31 @@
 
         <!-- Bicep Curl -->
         <div class="exercise-card">
-            <div class="exercise-image">
-                <img src="{% static 'images/exercises/bicep-curl.jpg' %}"
-                     alt="Bicep curl exercise">
-            </div>
 
-            <div class="exercise-content">
-                <h2>Bicep Curl</h2>
+    <div class="exercise-image">
+        <img src="{% static 'images/exercises/bicep-curl.jpg' %}"
+             alt="Bicep curl exercise">
+    </div>
 
-                <p>
-                    Track your arm movement and repetitions while maintaining
-                    correct elbow and shoulder positioning.
-                </p>
+    <div class="exercise-content">
 
-                <a href="#" class="start-btn">
-                    Start Exercise
-                </a>
-            </div>
+        <h2>Bicep Curl</h2>
+
+        <p>
+            Track your arm movement and repetitions while maintaining
+            correct elbow and shoulder positioning.
+        </p>
+
+        <a href="{% url 'workout' 'bicep-curl' %}" class="start-btn">
+            Start Exercise
+        </a>
+
+    </div>
+
+</div>
         </div>
 
     </main>
 
 </body>
 </html>
-```

@@ -1,0 +1,199 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ exercise }} | FitnessVision</title>
+
+    <link rel="stylesheet" href="{% static 'css/workout.css' %}">
+</head>
+
+<body>
+
+    <div class="workout-page">
+
+        <!-- Header -->
+        <header class="workout-header">
+
+            <a href="{% url 'exercises' %}" class="back-button">
+                ← Back
+            </a>
+
+            <div class="exercise-title">
+                <span class="small-title">CURRENT EXERCISE</span>
+                <h1>{{ exercise }}</h1>
+            </div>
+
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span id="connectionStatus">Ready</span>
+            </div>
+
+        </header>
+
+
+        <!-- Main Workout Area -->
+        <main class="workout-container">
+
+            <!-- Camera Section -->
+            <section class="camera-section">
+
+                <div class="camera-container">
+
+                    <video
+                        id="camera"
+                        autoplay
+                        playsinline>
+                    </video>
+
+                    <!-- This will later be used for pose landmarks -->
+                    <canvas id="poseCanvas"></canvas>
+
+                    <!-- Camera placeholder -->
+                    <div class="camera-placeholder" id="cameraPlaceholder">
+
+                        <div class="camera-icon">
+                            📷
+                        </div>
+
+                        <h2>Camera not started</h2>
+
+                        <p>
+                            Click "Start Exercise" to activate your camera.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Camera Controls -->
+                <div class="camera-controls">
+
+                    <button
+                        id="startButton"
+                        class="start-button"
+                        type="button">
+
+                        Start Exercise
+
+                    </button>
+
+                    <button
+                        id="stopButton"
+                        class="stop-button"
+                        type="button"
+                        disabled>
+
+                        Stop Exercise
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Workout Statistics -->
+            <aside class="stats-section">
+
+                <!-- Repetition Card -->
+                <div class="stat-card reps-card">
+
+                    <span class="stat-label">
+                        REPETITIONS
+                    </span>
+
+                    <span
+                        id="repCount"
+                        class="rep-count">
+
+                        0
+
+                    </span>
+
+                    <span class="stat-description">
+                        Completed
+                    </span>
+
+                </div>
+
+
+                <!-- Angle Card -->
+                <div class="stat-card">
+
+                    <span class="stat-label">
+                        ELBOW ANGLE
+                    </span>
+
+                    <span
+                        id="elbowAngle"
+                        class="stat-value">
+
+                        --
+
+                    </span>
+
+                    <span class="stat-description">
+                        Degrees
+                    </span>
+
+                </div>
+
+
+                <!-- Form Status -->
+                <div class="feedback-card">
+
+                    <span class="stat-label">
+                        FORM STATUS
+                    </span>
+
+                    <div
+                        id="formStatus"
+                        class="form-status">
+
+                        Waiting
+
+                    </div>
+
+                    <p
+                        id="feedbackMessage"
+                        class="feedback-message">
+
+                        Start the exercise to receive
+                        real-time feedback.
+
+                    </p>
+
+                </div>
+
+
+                <!-- Exercise Instructions -->
+                <div class="instructions-card">
+
+                    <h3>How to perform</h3>
+
+                    <ol>
+                        <li>Stand upright.</li>
+                        <li>Keep your elbow close to your body.</li>
+                        <li>Curl your arm upward.</li>
+                        <li>Lower your arm in a controlled motion.</li>
+                    </ol>
+
+                </div>
+
+            </aside>
+
+        </main>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="{% static 'js/camera.js' %}"></script>
+
+</body>
+</html>
