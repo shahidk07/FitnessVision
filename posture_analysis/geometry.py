@@ -70,3 +70,6 @@ def calculate_torso_angle(landmarks):
         (landmarks["LEFT_HIP"][1] +
          landmarks["RIGHT_HIP"][1]) / 2
     )
+    dx = shoulder_midpoint[0] - hip_midpoint[0]
+    dy = shoulder_midpoint[1] - hip_midpoint[1]
+

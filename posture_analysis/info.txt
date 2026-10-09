@@ -20,3 +20,11 @@ Controlled lowering	✅	Elbow-angle velocity
 Full extension	✅	Elbow angle
 Don't lock elbows	✅	Elbow angle
 Partial ROM	✅	Minimum/maximum elbow angle
+
+bicep curls
+1.elbow moving away from the body
+2. Excessive body swinging
+3. Incomplete curl / ROM
+4. Correct vs incorrect movement
+5. Repetition phases and counting
+Step 6 — Form evaluator

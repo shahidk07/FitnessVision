@@ -1,5 +1,5 @@
 from .geometry import calculate_angle
-
+import numpy as np
 """"
 calculate_bicep_curl_angles()
 It receives something like:
@@ -30,3 +30,17 @@ def calculate_bicep_curl_angles(landmarks):
         "left_elbow_angle":left_elbow_angle,
         "right_elbow_angle":right_elbow_angle
     }
+
+def calculate_shoulder_width(landmarks):
+    """
+    Calculate the distance between the left and right shoulders.
+    """
+
+    left_shoulder = np.array(landmarks["LEFT_SHOULDER"], dtype=float)
+    right_shoulder = np.array(landmarks["RIGHT_SHOULDER"], dtype=float)
+
+    shoulder_width = np.linalg.norm(
+        right_shoulder - left_shoulder
+    )
+
+    return shoulder_width
