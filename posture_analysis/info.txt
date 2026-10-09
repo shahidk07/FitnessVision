@@ -1,3 +1,30 @@
 SQUAT,
 Pushup,
 Bicep curl,
+
+Human rule	Can MediaPipe measure it?	How?
+Stand straight	✅	Torso angle
+Feet shoulder-width apart	✅	Foot/ankle distance
+Arms fully extended	✅	Elbow angle
+Shoulders relaxed	⚠️	Shoulder position, difficult to define robustly
+Chest up	✅/⚠️	Torso angle
+Look forward	⚠️	Face landmarks, but not essential initially
+Elbows fixed at sides	✅	Elbow-to-shoulder/hip relationship
+Curl weight slowly	✅	Elbow-angle change over time
+Don't swing body	✅	Torso angle over time
+Keep wrists straight	⚠️	Requires detailed hand/wrist orientation
+Dumbbells at shoulder level	✅/⚠️	Wrist/hand relative to shoulder
+Full contraction	✅	Elbow angle + wrist/hand position
+Elbows don't move forward	✅	Elbow position relative to shoulder/torso
+Controlled lowering	✅	Elbow-angle velocity
+Full extension	✅	Elbow angle
+Don't lock elbows	✅	Elbow angle
+Partial ROM	✅	Minimum/maximum elbow angle
+
+bicep curls
+1.elbow moving away from the body
+2. Excessive body swinging
+3. Incomplete curl / ROM
+4. Correct vs incorrect movement
+5. Repetition phases and counting
+Step 6 — Form evaluator
